@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 
+@Document(collection="country")
 public class Country{
+    @Id
+    private String id;
+    @NotBlank
     private String countryName;
     private String geography;
     private ArrayList<String> currentLeaders;
@@ -15,7 +19,11 @@ public class Country{
         this.trueHistory = trueH;
     }
 
-    public String getName(){
+    public String getID(){
+        return this.id;
+    }
+
+    public String getCountryName(){
         return this.countryName;
     }
 
@@ -53,5 +61,9 @@ public class Country{
 
     public void removeLeader(String leaderName){
         currentLeaders.remove(leaderName);
+    }
+
+    public void setID(String otherID){
+        this.id = otherID;
     }
 }

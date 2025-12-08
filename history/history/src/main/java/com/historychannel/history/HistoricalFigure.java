@@ -1,14 +1,25 @@
+
+@Document(collection="historical_figures")
 public class HistoricalFigure{
+    @Id 
+    private String id;
+    @NotBlank
     private String figureName;
-    public String earlyLife;
-    public String lifeStory;
-    public String death;
+    private String earlyLife;
+    private String lifeStory;
+    private String death;
+
+    public HistoricalFigure(){}
 
     public HistoricalContribution(String name, String life, String story, String death){
         this.figureName = name;
         this.earlyLife = life;
         this.lifeStory = story;
         this.death = death;
+    }
+
+    public String getID(){
+        return this.id;
     }
 
     public String getFigureName(){
@@ -25,6 +36,10 @@ public class HistoricalFigure{
 
     public String getDeath(){
         return this.death;
+    }
+
+    public void setID(String otherID){
+        this.id = otherID;
     }
 
     public void setFigureName(String otherName){

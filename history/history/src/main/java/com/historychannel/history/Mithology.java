@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 
+@Document(collection="mythology")
 public class Mithology{
+    @Id
+    private String id;
+    @NotBlank
     private ArrayList<String> deities;
     private ArrayList<String> stories;
 
@@ -9,11 +13,23 @@ public class Mithology{
         stories = new ArrayList<>();
     }
 
+    public String getID(){
+        return this.id;
+    }
+
+    public void setID(String otherID){
+        this.id = otherID;
+    }
+
     public void addDeities(String deityName){
         deities.add(deityName);
     }
 
     public void removeDeities(String deityName){
         deities.remove(deityName);
+    }
+
+    public ArrayList<String> getAllDeities(){
+        return deities;
     }
 }

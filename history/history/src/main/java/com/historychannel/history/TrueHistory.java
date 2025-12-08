@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 
+@Document(collection="true_history")
 public class TrueHistory{
+    @Id
+    private String id;
+    @NotBlank
     private String historyInANutshell;
     private ArrayList<String> funFacts;
     private ArrayList<HistoricalFigure> historicalFigures;
@@ -13,6 +17,10 @@ public class TrueHistory{
         historicalFigures = new ArrayList<>();
         historicalPhases = new ArrayList<>();
         historicalContributions = new ArrayList<>();
+    }
+
+    public String getID(){
+        return this.id;
     }
 
     public String getHistory(){
@@ -29,5 +37,9 @@ public class TrueHistory{
 
     public void removeFunFacts(String funFact){
         funFacts.remove(funFact);
+    }
+
+    public void setID(String otherID){
+        this.id = otherID;
     }
 }
