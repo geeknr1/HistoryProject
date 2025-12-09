@@ -1,7 +1,7 @@
 package com.historychannel.history;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
+import org.springframework.http.ResponseEntity;
 // import springframework.add.annotation.*;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -25,8 +25,8 @@ public class HistoricalFigureController{
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity <?> getFigureByID(String id){
-        return service.getFigureByID(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound());
+    public ResponseEntity <?> getFigureById(String id){
+        return service.getFigureById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/search")
@@ -43,7 +43,7 @@ public class HistoricalFigureController{
     @DeleteMapping("/id")
     public ResponseEntity<?> deleteFigure(String id){
         service.deleteFigure(id);
-        return ResponseEntity.noReturnContent().build();
+        return ResponseEntity.noContent().build();
     }
 
 }

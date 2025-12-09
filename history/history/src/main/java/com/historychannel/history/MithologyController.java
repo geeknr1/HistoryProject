@@ -1,14 +1,14 @@
 package com.historychannel.history;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("@/api/historical-figures")
+@RequestMapping("@/api/mithology-figures")
 @CrossOrigin(origins=("*"))
 public class MithologyController{
     private final MithologyService service;
@@ -24,13 +24,13 @@ public class MithologyController{
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity <?> getDeityByID(String id){
-        return service.getDeityByID(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound());
+    public ResponseEntity <?> getDeityById(String id){
+        return service.getDeityById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/search")
     public ResponseEntity<List<Mithology>> searchByDeityName(@RequestParam String name){
-        return ResponseEntity.ok(service.searchDeitiesByName(name));
+        return ResponseEntity.ok(service.searchDeity(name));
     }
 
     @PostMapping
@@ -42,7 +42,7 @@ public class MithologyController{
     @DeleteMapping("/id")
     public ResponseEntity<?> deleteDeity(String id){
         service.deleteDeity(id);
-        return ResponseEntity.noReturnContent().build();
+        return ResponseEntity.noContent().build();
     }
 
 }

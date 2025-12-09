@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Egypt extends Mithology{
     private ArrayList<String> egyptianTemplePriestNames; 
-    public Egypt()  {
+    public Egypt(){
         super();
         egyptianTemplePriestNames = new ArrayList<>();
     }

@@ -10,11 +10,11 @@ public class Norse extends Mithology{
     }
 
     public void addDruids(String druidName){
-        deities.add(druidName);
+        norseDruidNames.add(druidName);
     }
 
     public void removeDruids(String druidName){
-        deities.remove(druidName);
+        norseDruidNames.remove(druidName);
     }
 
 }

@@ -11,12 +11,20 @@ public class Mithology{
     @Id
     private String id;
     @NotBlank
+    private String deityName;
     private ArrayList<String> deities;
     private ArrayList<String> stories;
 
-    public Mithology(){
+    public Mithology() {}
+
+    public Mithology(String name){
+        this.deityName = name;
         deities = new ArrayList<>();
         stories = new ArrayList<>();
+    }
+
+    public String getDeityName(){
+        return this.deityName;
     }
 
     public String getID(){

@@ -18,8 +18,8 @@ public class HistoricalFigureService{
         return this.repository.findAll();
     }
 
-    public Optional<HistoricalFigure> getFigureByID(int id){
-        return this.repository.findByID(id);
+    public Optional<HistoricalFigure> getFigureById(String id){
+        return this.repository.findById(id);
     }
 
     public List<HistoricalFigure> searchFiguresByName(String name){
@@ -34,19 +34,19 @@ public class HistoricalFigureService{
     }
 
     public void deleteFigure(String id){
-        if(! repository.existsByID(id)){
+        if(! repository.existsById(id)){
             throw new IllegalArgumentException("there's no historical figure to delete");
         }
         else{
-            repository.deleteByID(id);
+            repository.deleteById(id);
         }
     }
 
     public boolean existsbyID(String id){
-        return repository.existsByID(id);
+        return repository.existsById(id);
     }
 
-    public int getCount(){
+    public long getCount(){
         return repository.count();
     }
 }

@@ -27,8 +27,8 @@ public class CountryController{
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity <?> getCountryByID(@PathVariable String id){
-        return service.getCountryByID(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    public ResponseEntity <?> getCountryById(@PathVariable String id){
+        return service.getCountryById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/search")

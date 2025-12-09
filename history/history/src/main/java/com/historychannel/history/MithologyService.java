@@ -18,8 +18,8 @@ public class MithologyService{
         return this.repository.findAll();
     }
 
-    public Optional<Mithology> getDeityByID(int id){
-        return this.repository.findByID(id);
+    public Optional<Mithology> getDeityById(String id){
+        return this.repository.findById(id);
     }
 
     public List<Mithology> searchDeity(String deity){
@@ -27,26 +27,26 @@ public class MithologyService{
     }
 
     public Mithology createDeity(Mithology mithology){
-        if(repository.existsByDeityNameIgnoreCase(mithology.getAllDeities())){
+        if(repository.existsByDeityNameIgnoreCase(mithology.getDeityName())){
             throw new IllegalArgumentException("mithology already added");
         }
         return repository.save(mithology);
     }
 
-    public void deleteFigure(String id){
-        if(! repository.existsByID(id)){
+    public void deleteDeity(String id){
+        if(! repository.existsById(id)){
             throw new IllegalArgumentException("there's no mithology to delete");
         }
         else{
-            repository.deleteByID(id);
+            repository.deleteById(id);
         }
     }
 
-    public boolean existsbyID(String id){
-        return repository.existsByID(id);
+    public boolean existsbyId(String id){
+        return repository.existsById(id);
     }
 
-    public int getCount(){
+    public long getCount(){
         return repository.count();
     }
 }

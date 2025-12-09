@@ -18,8 +18,8 @@ public class CountryService{
         return this.repository.findAll();
     }
 
-    public Optional<Country> getCountryByID(String id){
-        return this.repository.findByID(id);
+    public Optional<Country> getCountryById(String id){
+        return this.repository.findById(id);
     }
 
     public List<Country> searchCountriesByName(String name){
@@ -34,16 +34,16 @@ public class CountryService{
     }
 
     public void deleteCountry(String id){
-        if(! repository.existsByID(id)){
+        if(! repository.existsById(id)){
             throw new IllegalArgumentException("there's no country to delete");
         }
         else{
-            repository.deleteByID(id);
+            repository.deleteById(id);
         }
     }
 
     public boolean existsbyID(String id){
-        return repository.existsByID(id);
+        return repository.existsById(id);
     }
 
     public long getCount(){
