@@ -1,3 +1,5 @@
+package com.historychannel.history;
+
 public class HistoricalContribution{
     private String contribution;
 

@@ -2,10 +2,13 @@ package com.historychannel.history;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
-import springframework.add.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
-import java.util.List.HashMap;
+//import java.util.List.HashMap;
 
 @RestController
 @RequestMapping("@/api/countries")
@@ -24,8 +27,8 @@ public class CountryController{
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity <?> getCountryByID(String id){
-        return service.getCountryByID(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound());
+    public ResponseEntity <?> getCountryByID(@PathVariable String id){
+        return service.getCountryByID(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/search")
@@ -35,14 +38,14 @@ public class CountryController{
 
     @PostMapping
     public ResponseEntity<?> createCountry(@RequestBody Country country_){
-        Country created = service.createFigure(country_);
+        Country created = service.createCountry(country_);
         return ResponseEntity.status(201).body(created);
     }
 
     @DeleteMapping("/id")
     public ResponseEntity<?> deleteCountry(String id){
         service.deleteCountry(id);
-        return ResponseEntity.noReturnContent().build();
+        return ResponseEntity.noContent().build();
     }
 
 }

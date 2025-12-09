@@ -1,3 +1,8 @@
+package com.historychannel.history;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.validation.constraints.NotBlank;
 
 @Document(collection="historical_phase")
 public class HistoricalPhase{

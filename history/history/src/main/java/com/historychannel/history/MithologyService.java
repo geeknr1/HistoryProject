@@ -18,11 +18,11 @@ public class MithologyService{
         return this.repository.findAll();
     }
 
-    public Optional getDeityByID(int id){
+    public Optional<Mithology> getDeityByID(int id){
         return this.repository.findByID(id);
     }
 
-    public Optional searchDeity(String deity){
+    public List<Mithology> searchDeity(String deity){
         return repository.findByDeityNameContainingIgnoreCase(deity);
     }
 

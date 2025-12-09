@@ -18,11 +18,11 @@ public class HistoricalFigureService{
         return this.repository.findAll();
     }
 
-    public Optional getFigureByID(int id){
+    public Optional<HistoricalFigure> getFigureByID(int id){
         return this.repository.findByID(id);
     }
 
-    public Optional searchFiguresByName(String name){
+    public List<HistoricalFigure> searchFiguresByName(String name){
         return repository.findByFigureNameContainingIgnoreCase(name);
     }
 

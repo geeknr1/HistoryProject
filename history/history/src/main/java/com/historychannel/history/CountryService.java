@@ -18,11 +18,11 @@ public class CountryService{
         return this.repository.findAll();
     }
 
-    public Optional getCountryByID(int id){
+    public Optional<Country> getCountryByID(String id){
         return this.repository.findByID(id);
     }
 
-    public Optional searchCountriesByName(String name){
+    public List<Country> searchCountriesByName(String name){
         return repository.findByCountryNameContainingIgnoreCase(name);
     }
 
@@ -30,7 +30,7 @@ public class CountryService{
         if(repository.existsByCountryNameIgnoreCase(country.getCountryName())){
             throw new IllegalArgumentException("country already added");
         }
-        return repository.save(figure);
+        return repository.save(country);
     }
 
     public void deleteCountry(String id){
@@ -46,7 +46,7 @@ public class CountryService{
         return repository.existsByID(id);
     }
 
-    public int getCount(){
+    public long getCount(){
         return repository.count();
     }
 }

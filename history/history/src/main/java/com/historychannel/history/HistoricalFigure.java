@@ -1,3 +1,8 @@
+package com.historychannel.history;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.validation.constraints.NotBlank;
 
 @Document(collection="historical_figures")
 public class HistoricalFigure{
@@ -11,7 +16,7 @@ public class HistoricalFigure{
 
     public HistoricalFigure(){}
 
-    public HistoricalContribution(String name, String life, String story, String death){
+    public HistoricalFigure(String name, String life, String story, String death){
         this.figureName = name;
         this.earlyLife = life;
         this.lifeStory = story;
