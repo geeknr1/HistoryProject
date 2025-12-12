@@ -11,7 +11,7 @@ import java.util.Map;
 //import java.util.List.HashMap;
 
 @RestController
-@RequestMapping("@/api/countries")
+@RequestMapping("/api/countries")
 @CrossOrigin(origins=("*"))
 public class CountryController{
     private final CountryService service;

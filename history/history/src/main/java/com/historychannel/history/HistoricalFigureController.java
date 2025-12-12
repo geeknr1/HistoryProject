@@ -9,7 +9,7 @@ import java.util.Map;
 //import java.util.List.HashMap;
 
 @RestController
-@RequestMapping("@/api/historical-figures")
+@RequestMapping("/api/historical-figures")
 @CrossOrigin(origins=("*"))
 public class HistoricalFigureController{
     private final HistoricalFigureService service;

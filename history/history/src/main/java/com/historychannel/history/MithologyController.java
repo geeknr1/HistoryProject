@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("@/api/mithology-figures")
+@RequestMapping("/api/mithology-figures")
 @CrossOrigin(origins=("*"))
 public class MithologyController{
     private final MithologyService service;
