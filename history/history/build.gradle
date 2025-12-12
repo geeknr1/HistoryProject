@@ -32,6 +32,8 @@ dependencies {
 
 // http://localhost:8080/swagger-ui/index.html#/historical-figure-controller/createFigure
 
+// CORS -> security stuff, in backen you can make the routes go only on a certain trajectory
+
 tasks.named('test') {
 	useJUnitPlatform()
 }

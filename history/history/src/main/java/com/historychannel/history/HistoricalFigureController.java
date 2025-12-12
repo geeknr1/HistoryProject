@@ -25,7 +25,7 @@ public class HistoricalFigureController{
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity <?> getFigureById(String id){
+    public ResponseEntity <?> getFigureById(@PathVariable String id){
         return service.getFigureById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
@@ -40,8 +40,8 @@ public class HistoricalFigureController{
         return ResponseEntity.status(201).body(created);
     }
 
-    @DeleteMapping("/id")
-    public ResponseEntity<?> deleteFigure(String id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteFigure(@PathVariable String id){
         service.deleteFigure(id);
         return ResponseEntity.noContent().build();
     }

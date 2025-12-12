@@ -24,7 +24,7 @@ public class MithologyController{
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity <?> getDeityById(String id){
+    public ResponseEntity <?> getDeityById(@PathVariable String id){
         return service.getDeityById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
@@ -39,8 +39,8 @@ public class MithologyController{
         return ResponseEntity.status(201).body(created);
     }
 
-    @DeleteMapping("/id")
-    public ResponseEntity<?> deleteDeity(String id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteDeity(@PathVariable String id){
         service.deleteDeity(id);
         return ResponseEntity.noContent().build();
     }
