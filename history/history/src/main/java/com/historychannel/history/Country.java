@@ -16,6 +16,8 @@ public class Country{
     private Mithology mithology;
     private TrueHistory trueHistory;
 
+    public Country() {}
+
     public Country(String name, String geo, Mithology mith, TrueHistory trueH){
         this.countryName = name;
         this.geography = geo;

@@ -17,6 +17,8 @@ public class TrueHistory{
     private ArrayList<HistoricalPhase> historicalPhases;
     private ArrayList<HistoricalContribution> historicalContributions;
 
+    public TrueHistory() {}
+
     public TrueHistory(String inANutshell){
         this.historyInANutshell = inANutshell;
         funFacts = new ArrayList<>();
